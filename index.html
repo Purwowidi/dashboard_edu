@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard WebGIS</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Link ke file CSS -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+     <!-- Navbar -->
+    <nav class="navbar">
+    <div class="logo">Dashboard Sebaran Lokasi Program Pendidikan Tahun 2025</div>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <ul class="menu">
+        <li><a href="https://purwowidi.github.io/dashboard_edu/">Home</a></li>
+        <li><a href="https://purwowidi.github.io/mukapetaedu/">See Fullscreen Map</a></li>
+        <li><a href="https://www.instagram.com/purwowidi.astanto">Contact</a></li>
+    </ul>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto mt-1 grid grid-cols-1 md:grid-cols-1 gap-1">
+    <!-- Peta -->
+    <div class="bg-white p-4 shadow rounded">
+        <h2 class="text-lg font-semibold mb-4">Peta Interaktif</h2>
+        <iframe src="https://purwowidi.github.io/mukapetaedu/" class="w-full h-80 border rounded" allowfullscreen></iframe>
+    </div>
+<!-- Tabel -->
+<div class="container mx-auto mt-6 bg-white p-4 shadow rounded">
+    <h2 class="text-lg font-semibold mb-4">Data Tabel</h2>
+    <div class="overflow-y-auto h-80 border rounded"> <!-- Kontainer dengan scroll -->
+      <table class="table-auto w-full border">
+        <thead class="bg-white-200">
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">No.</td>
+                <td class="px-4 py-2 border border-gray-300">Kabupaten</td>
+                <td class="px-4 py-2 border border-gray-300">Kecamatan</td>
+                <td class="px-4 py-2 border border-gray-300">Desa/Kelurahan</td>
+                <td class="px-4 py-2 border border-gray-300">Estate</td>
+                <td class="px-4 py-2 border border-gray-300">Kategori</td>
+                <td class="px-4 py-2 border border-gray-300">Desa Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Jumlah Sekolah</td>
+                <td class="px-4 py-2 border border-gray-300">Jumlah SD</td>
+                <td class="px-4 py-2 border border-gray-300">Nama SD</td>
+                <td class="px-4 py-2 border border-gray-300">Status SD</td>
+                <td class="px-4 py-2 border border-gray-300">Jumlah Guru SD</td>
+                <td class="px-4 py-2 border border-gray-300">Jumlah Buku</td>
+                <td class="px-4 py-2 border border-gray-300">Jumlah SMP</td>
+                <td class="px-4 py-2 border border-gray-300">Nama SMP</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Paman</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007, SDN 024 Teluk Paman</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Paman Timur</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Kampar Kiri</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Salo</td>
+                <td class="px-4 py-2 border border-gray-300">Siabu</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 010, SDN 003 Siabu</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">32</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Salo</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Simalinyang</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 011, SDN 001 Simalinyang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 5 Kampar Kiri Tengah</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">5</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Suka Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Suka Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Makmur Sejahtera</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004 Makmur Sejahtera</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">12</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">7</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+                <td class="px-4 py-2 border border-gray-300">Kuntu</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 002, SDN 011, SDN 006 Kuntu</td>
+                <td class="px-4 py-2 border border-gray-300">3 lama</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">93</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+                <td class="px-4 py-2 border border-gray-300">Kuntu Darussalam</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 008 Kuntu</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Kampar Kiri</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Mayang Pongkai</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 018, SDN 017 Mayang Pongkai</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+                <td class="px-4 py-2 border border-gray-300">Domo</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004 Domo</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Mulya</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 008, SDN 009 Gunung Mulya</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">12</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001, SDN 012 Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Gunung Sahilan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">Kampar</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+                <td class="px-4 py-2 border border-gray-300">Gunung Sari</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005, SDN 011 Gunung Sari</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">25</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Gunung Sahilan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">14</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 11 Sungai Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 4 Merbau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Tanjung Kulim</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 6 Tanjung Kulim</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Tanjung Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 15, SDN 17 Tanjung Padang</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama</td>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Meranti Bunting</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 4 Meranti Bunting</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Merbau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">18</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Belitung</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">5</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 1, SDN 7, SDN 8, SDN 14, SDN 15 Teluk Belitung</td>
+                <td class="px-4 py-2 border border-gray-300">5 baru</td>
+                <td class="px-4 py-2 border border-gray-300">48</td>
+                <td class="px-4 py-2 border border-gray-300">150</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Merbau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">19</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tebing Tinggi</td>
+                <td class="px-4 py-2 border border-gray-300">Selatpanjang Kota</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 2 Selat Panjang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">25</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">20</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Pelantai</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 10, SDN 3 Pelantai</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">21</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Kudap</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Tasik Putri Puyu</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 18, SDN 10 Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama</td>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 4 Tasik Putri Puyu</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">23</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Mayang Sari</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 2 Mayang Sari</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">24</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Mekar Delima</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 4 Mekar Delima, SDS Mekar Delima</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama</td>
+                <td class="px-4 py-2 border border-gray-300">7</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">25</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Mekar Sari</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 13 Mekar Sari</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">26</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Lukit</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 5, SDN 12, SDN 16 Lukit</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">27</td>
+                <td class="px-4 py-2 border border-gray-300">93</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Merbau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">27</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Merbau</td>
+                <td class="px-4 py-2 border border-gray-300">Bagan Melibur</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 9 Bagan Melibur</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">28</td>
+                <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+                <td class="px-4 py-2 border border-gray-300">Dedap</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 5 Dedap</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">29</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Sungaipaku</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 003 Sungai Paku</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">14</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Benai</td>
+                <td class="px-4 py-2 border border-gray-300">Talontom</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 010 Talontam</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">12</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 4 Benai</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Tanjungpauh</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004 Tanjung Pauh</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">35</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 5 Singingi Hilir</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">32</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Seberang Pulau Busuk</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005 Petai</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">33</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Teratak Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Teratak Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN Satu Atap Teratak Baru</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">34</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Simpang Tanah Lapang</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001 Simpang Tanah Lapang</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">18</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Kuantan Hilir</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">35</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Sigaruntang</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004 Sigaruntang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMP Satu Atap Sigaruntang</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">36</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Pulaumadinah</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004 Pulau Madinah</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">7</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">37</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Pulaupadang</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 003 Pulau Padang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">38</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Pulausipan</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007 Pulau Sipan</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">39</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Pasir Emas</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 017 Pasir Emas</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">40</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kebun Lado</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005 Kebun Lado</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 8 Singingi</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">41</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Teso</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 002, SDN 019 Koto Baru</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">25</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Singingi Hilir</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">42</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Muara Lembu</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001 Muara Lembu</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Singingi</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">43</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 022 Pulau Baru Kopah</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">44</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Kijang</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 010 Pulau Kijang</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">45</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 013 Simpang Sigaruntang, SDN 006 Koto Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">21</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">46</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Indarung</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Pangkalan Indarung</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">47</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Singingi Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Petai</td>
+                <td class="px-4 py-2 border border-gray-300">Logas</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001 Petai</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">48</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Pulaubusuk</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 002 Pulau Busuk</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">12</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">49</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Inuman</td>
+                <td class="px-4 py-2 border border-gray-300">Pulaubusuk Jaya</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 010 Pulau Busuk Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">50</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Pasar Usang</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007, SDN 002 Pasar Usang Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">20</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">51</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Kopah</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 016 Kopah</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">14</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 5 Teluk Kuantan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">52</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Munsalo</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 024 Munsalo Kopah</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">53</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Benai</td>
+                <td class="px-4 py-2 border border-gray-300">Banjar Benai</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Banjar Benai</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">54</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Dusun Tuo</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 008 Dusun Tuo</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">55</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Tengah</td>
+                <td class="px-4 py-2 border border-gray-300">Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 017 Jaya Kopah</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">56</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+                <td class="px-4 py-2 border border-gray-300">Kuantan Hilir</td>
+                <td class="px-4 py-2 border border-gray-300">Gunungmelintang</td>
+                <td class="px-4 py-2 border border-gray-300">Baserah</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005 Gunung Melintang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMP Satu Atap Gunung Melintang</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">57</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Tri Mulya Jaya</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Trimulya Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">58</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Sering</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006 Sering</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 6 Pelalawan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">59</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Tambak</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 002, SDN 012 Tambak</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Segati</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 013, SDN 005, SDN 014, SDN 016 Segati</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 3 baru</td>
+                <td class="px-4 py-2 border border-gray-300">68</td>
+                <td class="px-4 py-2 border border-gray-300">121</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3, SMPN 5 Langgam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Sotol</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 003 Sotol</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Binjai</td>
+                <td class="px-4 py-2 border border-gray-300">Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 010 Teluk Binjai</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">63</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 003, SDN 013 Teluk Meranti, SDN 015 Teluk Punak</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">39</td>
+                <td class="px-4 py-2 border border-gray-300">91</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Teluk Meranti</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">64</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Delik</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 014 Pangkalan Delik, SDN 009 Delik</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Pelalawan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">65</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Kampung Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007 Kampung Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">66</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005 Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 002 Pangkalan Kerinci</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">67</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">5</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001, SDN 004, SDN 008, SDN 010 Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 3 baru</td>
+                <td class="px-4 py-2 border border-gray-300">45</td>
+                <td class="px-4 py-2 border border-gray-300">121</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMP 001 Langgam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">68</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Langkan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 009, SDN 015 Langkan</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">43</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Langgam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">69</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Kembang Bunga</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 003 Lubuk Kembang Bunga</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Ukui</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">70</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Penarikan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 006, SDN 011 Penarikan</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">22</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">71</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Pulau Muda</td>
+                <td class="px-4 py-2 border border-gray-300">Meranti</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 004, SDN 007, SDN 014 Pulau Muda, SDN 016 Teluk Naga</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 3 baru</td>
+                <td class="px-4 py-2 border border-gray-300">41</td>
+                <td class="px-4 py-2 border border-gray-300">121</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2, SMPN 5 Teluk Meranti</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">72</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Gondai</td>
+                <td class="px-4 py-2 border border-gray-300">Langgam</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007 Pangkalan Gondai, SDN 017 Mahaman Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">32</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 4 Langgam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">73</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci Barat</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">SDN Bernas, SDN 011 Tepian Batu, SDN 012 Pangkalan Kerinci, SDN 009 Kuala Terusan</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama, 2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">133</td>
+                <td class="px-4 py-2 border border-gray-300">122</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN Bernas, SMPN 3 Pangkalan Kerinci</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">74</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci Kota</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">5</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 007, SDN 008, SDN 003, SDN 006, SDN 010 Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">5 baru</td>
+                <td class="px-4 py-2 border border-gray-300">190</td>
+                <td class="px-4 py-2 border border-gray-300">150</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 5 Pangkalan Kerinci</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">75</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci Timur</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 013 Pangkalan Kerinci, SDIT At-Taqwa</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">67</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Pangkalan Kerinci</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">76</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Kuala Terusan</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 002 Kuala Terusan</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">77</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+                <td class="px-4 py-2 border border-gray-300">Rantau Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001 Rantau Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">78</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 001, SDN 004 Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">2 lama</td>
+                <td class="px-4 py-2 border border-gray-300">26</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Pelalawan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">79</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Lalang Kabung</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 012 Lalang Kabung</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 8 Pelalawan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">80</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Air Emas</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 009 Desa Air Emas</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">81</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Bukit Jaya</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 005 Bukit Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">82</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Air Hitam</td>
+                <td class="px-4 py-2 border border-gray-300">Ukui</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 016 Air Hitam</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">83</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Rimba</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 12, SDN 17 Teluk Rimba</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">16</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">84</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Rawang Kao</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 05 Rawang Kao</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">85</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Rawang Kao Barat</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 09 Rawang Kao Barat</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">6</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Lubuk Dalam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">86</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Sengkemang</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 06 Sengkemang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">87</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Rawa</td>
+                <td class="px-4 py-2 border border-gray-300">Futong Port</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 12 Sungai Rawa</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">15</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">88</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Selodang</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 03 Sungai Selodang</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Sungai Mandau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">89</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Sialang Baru</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 06 Sialang Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">14</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">90</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Sri Gading</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 02 Sri Gading</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">14</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">91</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Sialang Palas</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 03 Sialang Palas</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Lubuk Dalam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">92</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Rantau Panjang</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 15, SDN 07 Rantau Panjang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">17</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 4 Koto Gasib</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">93</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Kerinci Kanan</td>
+                <td class="px-4 py-2 border border-gray-300">Simpang Perak Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 06 Simpang Perak Jaya</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">28</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 5 Kerinci Kanan</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">94</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">Suka Mulya</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 13 Suka Mulya</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">7</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">95</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+                <td class="px-4 py-2 border border-gray-300">Teluk Lanus</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 17 Teluk Lanus</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">96</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Olak</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 04 Olak</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Atap Sungai Mandau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">97</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Muara Bungkal</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 05 Muara Bungkal</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Satu Atap Sungai Mandau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">98</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 01, SDN 07, SDN 08 Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">48</td>
+                <td class="px-4 py-2 border border-gray-300">91</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Lubuk Dalam</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">99</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Muara Kelantan</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 01, SDN 09 Muara Kelantan</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">29</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Sungai Mandau</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">100</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Jering</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 02 Lubuk Jering</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama</td>
+                <td class="px-4 py-2 border border-gray-300">9</td>
+                <td class="px-4 py-2 border border-gray-300">31</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">101</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+                <td class="px-4 py-2 border border-gray-300">Penyengat</td>
+                <td class="px-4 py-2 border border-gray-300">Futong Port</td>
+                <td class="px-4 py-2 border border-gray-300">Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 18, SDN 24 Tanjung Pal</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">20</td>
+                <td class="px-4 py-2 border border-gray-300">62</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 6 Sungai Apit</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">102</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+                <td class="px-4 py-2 border border-gray-300">Mengkapan</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 08, SDN 22 Mengkapan</td>
+                <td class="px-4 py-2 border border-gray-300">2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">23</td>
+                <td class="px-4 py-2 border border-gray-300">60</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">103</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Makmur</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 02 Pangkalan Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">104</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Pangkalan Pisang</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 05, SDN 18 Pangkalan Pisang</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">19</td>
+                <td class="px-4 py-2 border border-gray-300">61</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">105</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+                <td class="px-4 py-2 border border-gray-300">Lalang</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 13 Lalang</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">106</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 01, SDN 19, SDN 21 Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">65</td>
+                <td class="px-4 py-2 border border-gray-300">91</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 2 Dayun</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">107</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Dayun</td>
+                <td class="px-4 py-2 border border-gray-300">Banjar Seminai</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 03 Banjar Seminai</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">11</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">108</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Kerinci Kanan</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Baru</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 09 Buatan Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">13</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">109</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan I</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 02, SDN 13, SDN 19 Buatan I</td>
+                <td class="px-4 py-2 border border-gray-300">3 baru</td>
+                <td class="px-4 py-2 border border-gray-300">23</td>
+                <td class="px-4 py-2 border border-gray-300">90</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 3 Koto Gasib</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">110</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan II</td>
+                <td class="px-4 py-2 border border-gray-300">Mandau</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">4</td>
+                <td class="px-4 py-2 border border-gray-300">3</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 16, SDN 03, SDN 04 Buatan II</td>
+                <td class="px-4 py-2 border border-gray-300">1 lama, 2 baru</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">91</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SMPN 1 Koto Gasib</td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">111</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+                <td class="px-4 py-2 border border-gray-300">Empang Baru</td>
+                <td class="px-4 py-2 border border-gray-300">Buatan Port</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SD 04 Empang Baru</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">10</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">112</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Kerinci Kanan</td>
+                <td class="px-4 py-2 border border-gray-300">Jati Mulya</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300">Non Operasional</td>
+                <td class="px-4 py-2 border border-gray-300">Bukan</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 07 Jati Mulya</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 border border-gray-300">113</td>
+                <td class="px-4 py-2 border border-gray-300">Siak</td>
+                <td class="px-4 py-2 border border-gray-300">Kerinci Kanan</td>
+                <td class="px-4 py-2 border border-gray-300">Gabung Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">Mill</td>
+                <td class="px-4 py-2 border border-gray-300">Ops &amp; A2030</td>
+                <td class="px-4 py-2 border border-gray-300">Ya</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <td class="px-4 py-2 border border-gray-300">SDN 10 Gabung Makmur</td>
+                <td class="px-4 py-2 border border-gray-300">1 baru</td>
+                <td class="px-4 py-2 border border-gray-300">8</td>
+                <td class="px-4 py-2 border border-gray-300">30</td>
+                <td class="px-4 py-2 border border-gray-300">0</td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+            </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
